@@ -2,21 +2,20 @@ var contacts = [];
 
 function updateContactsList() {
   var contactsList = document.getElementById("contactsList");
-  contactsList.innerHTML = "<strong>Contacts:</strong><br>";
-  for (var i = 0; i < contacts.length; i++) {
-    contactsList.innerHTML += contacts[i] + "<br>";
-  }
+  contactsList.innerHTML = "<strong>Contacts:</strong> " + contacts.join(", ");
 }
 
 function addContact() {
-  var nameInput = document.getElementById("nameInput").value;
+  var nameInput = document.getElementById("nameInput").value.trim();
   
   // Add new contact
-  contacts.push(nameInput);
+  if (nameInput !== "") {
+    contacts.push(nameInput);
   
-  // Remove first contact if the list exceeds 7 entries
-  if (contacts.length > 7) {
-    contacts.shift();
+    // Remove first contact if the list exceeds 7 entries
+    if (contacts.length > 7) {
+      contacts.shift();
+    }
   }
   
   // Clear input field
