@@ -19,6 +19,9 @@ function addContact() {
     contacts.shift();
   }
   
+  // Clear input field
+  document.getElementById("nameInput").value = "";
+  
   // Update contacts list
   updateContactsList();
 }
@@ -26,6 +29,9 @@ function addContact() {
 function removeContact() {
   // Remove last contact
   contacts.pop();
+  
+  // Clear input field
+  document.getElementById("nameInput").value = "";
   
   // Update contacts list
   updateContactsList();
